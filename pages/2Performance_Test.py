@@ -30,11 +30,11 @@ def present_image(imagefile):
     training_set.class_indices
 
     if result[0][0]==0:
-        prediction = 'No Smile'
+        prediction = 'Normal'
     else:
-        prediction = 'Smile'
+        prediction = 'Pneumonia'
 
-    st.subheader('CNN says the image is class ' + prediction)
+    st.subheader('CNN says the image is/has ' + prediction)
  
 
 

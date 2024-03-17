@@ -212,7 +212,7 @@ def app():
 
 # Define a function to plot images
 def plot_images(images, labels):
-    fig, axs = plt.subplots(5, 5, figsize=(10, 6))  # Create a figure with subplots
+    fig, axs = plt.subplots(3, 3, figsize=(10, 6))  # Create a figure with subplots
 
     # Flatten the axes for easier iteration
     axs = axs.flatten()

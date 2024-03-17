@@ -60,17 +60,15 @@ def app():
     # Data preparation
     training_set = train_datagen.flow_from_directory(
         "dataset/training_set",
-        target_size=(32, 32),
+        target_size=(224, 224),
         batch_size=32,
-        class_mode="binary",
-        color_mode="grayscale"  # Add this line
+        class_mode="binary"
     )
     test_set = test_datagen.flow_from_directory(
         "dataset/test_set",
-        target_size=(32, 32),
+        target_size=(224, 224),
         batch_size=32,
-        class_mode="binary",
-        color_mode="grayscale"  # Add this line
+        class_mode="binary"
     )
 
     st.session_state.training_set = training_set
@@ -86,10 +84,10 @@ def app():
     st.success("Image dataset loading completed!") 
 
     st.subheader("Sample Training Images")
-    st.write("The following are 25 sample images randomly selected from both classes: Smile and No Smile")
-    # Get the data for the first 25 images in training set
+    st.write("The following are 9 sample images randomly selected from both classes: Normal and Pneumonia")
+    # Get the data for the first 9 images in training set
     train_data = next(training_set)
-    train_images, train_labels = train_data[0][0:25], train_data[1][0:25]  # Get first 25 images and labels
+    train_images, train_labels = train_data[0][0:9], train_data[1][0:9]  # Get first 9 images and labels
 
     # Plot the training set images
     plot_images(train_images, train_labels)
@@ -125,7 +123,7 @@ def app():
     classifier = keras.Sequential()
 
     # Convolutional layer
-    classifier.add(layers.Conv2D(n_layers, (3, 3), activation=h_activation, input_shape=(32, 32, 1)))  # Add input shape for RGB images
+    classifier.add(layers.Conv2D(n_layers, (3, 3), activation=h_activation, input_shape=(32, 32, 3)))  # Add input shape for RGB images
 
     # Max pooling layer
     classifier.add(layers.MaxPooling2D(pool_size=(2, 2)))

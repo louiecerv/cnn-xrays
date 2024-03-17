@@ -18,7 +18,7 @@ def app():
     West Visayas State University"""
     st.text(text)
 
-    st.image('smiles.jpg', caption='The Smiles Dataset')
+    st.image('chest-xray.jpg', caption='The Chest X-ray Dataset')
 
     text = """
     \nDescribe this Streamlit App

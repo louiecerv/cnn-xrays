@@ -159,7 +159,8 @@ def app():
 
     st.session_state.classifier = classifier
 
-    classifier.summary(print_fn=lambda x: st.text(x))
+    summary_string = classifier.summary()
+    st.text(summary_string)
 
     with st.expander("CLick to display guide on how to select parameters"):
         text = """ReLU (Rectified Linear Unit): This is the most common activation function used 

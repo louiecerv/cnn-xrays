@@ -94,12 +94,13 @@ def app():
     # Progress bar reaches 100% after the loop completes
     st.success("Image dataset loading completed!") 
 
-    text = """\nNumber of train samples in Normal category 1349
-                Number of train samples in Pneumonia category 3883
-                Number of test samples in Normal category 234
-                Number of test samples in Pneumonia category 390"""
+    text = """
+    \nNumber of train samples in Normal category 1349
+        Number of train samples in Pneumonia category 3883
+        Number of test samples in Normal category 234
+        Number of test samples in Pneumonia category 390"""
     st.write(text)
-    
+
     st.subheader("Sample Training Images")
     st.write("The following are 9 sample images randomly selected from both classes: Normal and Pneumonia")
     # Get the data for the first 9 images in training set

@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import os
 import time
 
 class_name = ['NORMAL','PNEUMONIA']
@@ -34,16 +33,7 @@ def app():
     if "test_set" not in st.session_state:
         st.session_state.test_set = []
 
-    data_path = '/dataset'
-    files_list_normal_train = get_list_files(data_path + '/train_set/'+class_name[0])
-    files_list_pneu_train = get_list_files(data_path+'/train_set/'+class_name[1])
-    files_list_normal_test = get_list_files(data_path+'/test_set/'+class_name[0])
-    files_list_pneu_test = get_list_files(data_path+'/test_set/'+class_name[1])
-    st.write("Number of train samples in Normal category {}".format(len(files_list_normal_train)))
-    st.write("Number of train samples in Pneumonia category {}".format(len(files_list_pneu_train)))
-    st.write("Number of test samples in Normal category {}".format(len(files_list_normal_test)))
-    st.write("Number of test samples in Pneumonia category {}".format(len(files_list_pneu_test)))
-
+  
 
     with st.expander("Click to display more info"):
         text = """
@@ -70,7 +60,10 @@ def app():
         taking the outputs from the previous layers and using them to classify the image 
         or make predictions."""
         st.write(text)
-
+        text = """\nNumber of train samples in Normal category 1349
+                  Number of train samples in Pneumonia category 3883
+                  Number of test samples in Normal category 234
+                  Number of test samples in Pneumonia category 390"""
 
     progress_bar = st.progress(0, text="Loading the images, please wait...")
 

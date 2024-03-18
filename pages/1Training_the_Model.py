@@ -64,6 +64,7 @@ def app():
                   Number of train samples in Pneumonia category 3883
                   Number of test samples in Normal category 234
                   Number of test samples in Pneumonia category 390"""
+        st.write(text)
 
     progress_bar = st.progress(0, text="Loading the images, please wait...")
 

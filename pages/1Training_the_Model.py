@@ -93,13 +93,14 @@ def app():
         time.sleep(0.01)
     # Progress bar reaches 100% after the loop completes
     st.success("Image dataset loading completed!") 
-
-    text = """
-    \nNumber of train samples in Normal category 1349
-    \nNumber of train samples in Pneumonia category 3883
-    \nNumber of test samples in Normal category 234
-    \nNumber of test samples in Pneumonia category 390"""
-    st.write(text)
+    
+    with st.expander("Show the Image Counts for Training and Test Samples"):
+        text = """
+        \nNumber of train samples in Normal category 1349
+        \nNumber of train samples in Pneumonia category 3883
+        \nNumber of test samples in Normal category 234
+        \nNumber of test samples in Pneumonia category 390"""
+        st.write(text)
 
     st.subheader("Sample Training Images")
     st.write("The following are 9 sample images randomly selected from both classes: Normal and Pneumonia")
@@ -158,6 +159,7 @@ def app():
 
     st.session_state.classifier = classifier
 
+    classifier.summary(print_fn=lambda x: st.text(x))
 
     with st.expander("CLick to display guide on how to select parameters"):
         text = """ReLU (Rectified Linear Unit): This is the most common activation function used 

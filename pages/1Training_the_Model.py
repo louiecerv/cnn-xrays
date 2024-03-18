@@ -217,9 +217,6 @@ def app():
             validation_steps=10,
             callbacks=[CustomCallback()]
         )
-
-        summary_string = classifier.summary()
-        st.text(summary_string)
         
         # update the progress bar
         for i in range(100):
@@ -230,6 +227,9 @@ def app():
         # Progress bar reaches 100% after the loop completes
         st.success("Model training completed!") 
         st.write("The model is now trained to tell are apart NORMAL and PNEUMONIA images. Use the sidebar to open the Performance Testing page.")
+
+        summary_string = classifier.summary()
+        st.write(summary_string)
 
 # Define a function to plot images
 def plot_images(images, labels):

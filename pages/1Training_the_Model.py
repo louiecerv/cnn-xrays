@@ -33,7 +33,7 @@ def app():
     if "test_set" not in st.session_state:
         st.session_state.test_set = []
 
-  
+
 
     with st.expander("Click to display more info"):
         text = """
@@ -60,11 +60,7 @@ def app():
         taking the outputs from the previous layers and using them to classify the image 
         or make predictions."""
         st.write(text)
-        text = """\nNumber of train samples in Normal category 1349
-                  Number of train samples in Pneumonia category 3883
-                  Number of test samples in Normal category 234
-                  Number of test samples in Pneumonia category 390"""
-        st.write(text)
+
 
     progress_bar = st.progress(0, text="Loading the images, please wait...")
 
@@ -98,6 +94,12 @@ def app():
     # Progress bar reaches 100% after the loop completes
     st.success("Image dataset loading completed!") 
 
+    text = """\nNumber of train samples in Normal category 1349
+                Number of train samples in Pneumonia category 3883
+                Number of test samples in Normal category 234
+                Number of test samples in Pneumonia category 390"""
+    st.write(text)
+    
     st.subheader("Sample Training Images")
     st.write("The following are 9 sample images randomly selected from both classes: Normal and Pneumonia")
     # Get the data for the first 9 images in training set

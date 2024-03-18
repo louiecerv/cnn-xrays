@@ -226,7 +226,7 @@ def app():
             time.sleep(0.01)
         # Progress bar reaches 100% after the loop completes
         st.success("Model training completed!") 
-        st.write("The model is now trained to tell if the picture has a smile or not.Use the sidebar to open the Performance Testing page.")
+        st.write("The model is now trained to tell are apart NORMAL and PNEUMONIA images. Use the sidebar to open the Performance Testing page.")
 
 # Define a function to plot images
 def plot_images(images, labels):

@@ -159,9 +159,6 @@ def app():
 
     st.session_state.classifier = classifier
 
-    summary_string = classifier.summary()
-    st.text(summary_string)
-
     with st.expander("CLick to display guide on how to select parameters"):
         text = """ReLU (Rectified Linear Unit): This is the most common activation function used 
         in convolutional neural networks (CNNs) for hidden layers. It outputs the input 
@@ -220,6 +217,9 @@ def app():
             validation_steps=10,
             callbacks=[CustomCallback()]
         )
+
+        summary_string = classifier.summary()
+        st.text(summary_string)
         
         # update the progress bar
         for i in range(100):

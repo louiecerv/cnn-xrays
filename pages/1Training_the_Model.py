@@ -35,7 +35,7 @@ def app():
         st.session_state.test_set = []
 
     data_path = '/workspaces/cnn-xrays/dataset'
-    files_list_normal_train = get_list_files(data_path + '/train_set/'+class_name[0] +)
+    files_list_normal_train = get_list_files(data_path + '/train_set/'+class_name[0])
     files_list_pneu_train = get_list_files(data_path+'/train_set/'+class_name[1])
     files_list_normal_test = get_list_files(data_path+'/test_set/'+class_name[0])
     files_list_pneu_test = get_list_files(data_path+'/test_set/'+class_name[1])

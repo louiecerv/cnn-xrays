@@ -96,9 +96,9 @@ def app():
 
     text = """
     \nNumber of train samples in Normal category 1349
-        Number of train samples in Pneumonia category 3883
-        Number of test samples in Normal category 234
-        Number of test samples in Pneumonia category 390"""
+    \nNumber of train samples in Pneumonia category 3883
+    \nNumber of test samples in Normal category 234
+    \nNumber of test samples in Pneumonia category 390"""
     st.write(text)
 
     st.subheader("Sample Training Images")

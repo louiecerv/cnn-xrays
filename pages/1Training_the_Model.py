@@ -113,9 +113,15 @@ def app():
 
     epochs = st.sidebar.slider(   
         label="Set the number epochs:",
+<<<<<<< HEAD
         min_value=5,
         max_value=30,
         value=5,
+=======
+        min_value=3,
+        max_value=5,
+        value=3,
+>>>>>>> 4cb13918be1d19b8264c0bf674bba3abbe5fad2b
         step=1
     )
     

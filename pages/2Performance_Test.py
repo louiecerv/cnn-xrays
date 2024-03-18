@@ -23,18 +23,18 @@ def present_image(imagefile):
     classifier = st.session_state.classifier
     training_set = st.session_state.training_set
     st.image(imagefile, caption='Smile or No Smile')
-    test_image = image.load_img(imagefile, target_size=(32, 32), color_mode='grayscale')
+    test_image = image.load_img(imagefile, target_size=(224, 224))
     test_image = image.img_to_array(test_image)
     test_image = np.expand_dims(test_image, axis=0)
     result = classifier.predict(test_image)
     training_set.class_indices
 
     if result[0][0]==0:
-        prediction = 'No Smile'
+        prediction = 'Normal'
     else:
-        prediction = 'Smile'
+        prediction = 'Pneumonia'
 
-    st.subheader('CNN says the image is class ' + prediction)
+    st.subheader('CNN says the image is/has ' + prediction)
  
 
 

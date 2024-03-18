@@ -113,10 +113,10 @@ def app():
 
     epochs = st.sidebar.slider(   
         label="Set the number epochs:",
-        min_value=20,
-        max_value=200,
-        value=50,
-        step=5
+        min_value=5,
+        max_value=30,
+        value=5,
+        step=1
     )
     
     # Initialize the CNN

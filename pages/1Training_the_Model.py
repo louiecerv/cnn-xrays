@@ -122,7 +122,7 @@ def app():
         max_value=5,
         value=3,
 >>>>>>> 4cb13918be1d19b8264c0bf674bba3abbe5fad2b
-        step=1
+step=1
     )
     
     # Initialize the CNN

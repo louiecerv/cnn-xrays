@@ -10,8 +10,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import time
-from io import StringIO
-from tensorflow.io import RedirectStdOut
 
 class_name = ['NORMAL','PNEUMONIA']
 def get_list_files(dirName):
@@ -229,15 +227,6 @@ def app():
         # Progress bar reaches 100% after the loop completes
         st.success("Model training completed!") 
         st.write("The model is now trained to tell are apart NORMAL and PNEUMONIA images. Use the sidebar to open the Performance Testing page.")
-
-        # Create a StringIO object to capture the output
-        summary_buffer = StringIO()
-        with tf.io.RedirectStdOut(summary_buffer):
-            classifier.summary()
-
-        # Extract the captured text
-        summary_string  = summary_buffer.getvalue()
-        st.write(summary_string)
 
 # Define a function to plot images
 def plot_images(images, labels):

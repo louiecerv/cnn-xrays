@@ -255,7 +255,7 @@ class CustomCallback(tf.keras.callbacks.Callback):
         st.text(f"Epoch {epoch}: loss = {loss:.4f}, accuracy = {accuracy:.4f}")
 
 class EpochProgressBar(tf.keras.callbacks.Callback):
-  def __init__(self, total_epochs):
+  def __init__(self, total_epochs, logs=None):
     self.total_epochs = total_epochs
     self.pbar = tqdm(total=total_epochs)
 

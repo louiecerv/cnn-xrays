@@ -10,7 +10,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import Callback
-from tqdm import tqdm
 import time
 
 class_name = ['NORMAL','PNEUMONIA']
@@ -217,7 +216,8 @@ def app():
             validation_steps=10,
             callbacks=[CustomCallback()]
         )
-        
+        classifier.summary()
+
         # update the progress bar
         for i in range(100):
             # Update progress bar value
@@ -252,17 +252,6 @@ class CustomCallback(tf.keras.callbacks.Callback):
         
         # Update the Streamlit interface with the current epoch's output
         st.text(f"Epoch {epoch}: loss = {loss:.4f}, accuracy = {accuracy:.4f}")
-
-class EpochProgressBar(tf.keras.callbacks.Callback):
-  def __init__(self, total_epochs, logs=None):
-    self.total_epochs = total_epochs
-    self.pbar = tqdm(total=total_epochs)
-
-  def on_epoch_end(self, epoch, logs=None):
-    self.pbar.update(1)
-    if epoch == self.total_epochs - 1:
-      self.pbar.close()  # Close the progress bar after final epoch
-
 
 #run the app
 if __name__ == "__main__":

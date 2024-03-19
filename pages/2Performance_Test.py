@@ -22,7 +22,7 @@ def app():
 def present_image(imagefile):
     classifier = st.session_state.classifier
     training_set = st.session_state.training_set
-    st.image(imagefile, caption='Smile or No Smile')
+    st.image(imagefile, caption='NORMAL or with PNEUMONIA?')
     test_image = image.load_img(imagefile, target_size=(224, 224))
     test_image = image.img_to_array(test_image)
     test_image = np.expand_dims(test_image, axis=0)

@@ -11,6 +11,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import time
 from io import StringIO
+from tensorflow.io import RedirectStdOut
 
 class_name = ['NORMAL','PNEUMONIA']
 def get_list_files(dirName):

@@ -215,6 +215,7 @@ def app():
             validation_data=test_set,
             steps_per_epoch=4,
             validation_steps=10,
+            verbose=0,
             callbacks=[EpochProgressBar(epochs)]
         )
         
@@ -253,7 +254,7 @@ class CustomCallback(tf.keras.callbacks.Callback):
         # Update the Streamlit interface with the current epoch's output
         st.text(f"Epoch {epoch}: loss = {loss:.4f}, accuracy = {accuracy:.4f}")
 
-class EpochProgressBar(Callback):
+class EpochProgressBar(tf.keras.callbacks.Callback):
   def __init__(self, total_epochs):
     self.total_epochs = total_epochs
     self.pbar = tqdm(total=total_epochs)

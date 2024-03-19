@@ -9,7 +9,6 @@ from tensorflow.keras.preprocessing import image
 # Define the Streamlit app
 def app():
 
-
     st.subheader('Testing the Performance of the CNN Classification Model')
     text = """We test our trained model by presenting it with a classification task."""
     st.write(text)

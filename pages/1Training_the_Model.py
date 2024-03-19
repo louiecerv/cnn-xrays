@@ -33,8 +33,6 @@ def app():
     if "test_set" not in st.session_state:
         st.session_state.test_set = []
 
-
-
     with st.expander("Click to display more info"):
         text = """
         \n# --- Available activation functions for hidden layers ---

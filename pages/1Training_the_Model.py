@@ -215,8 +215,7 @@ def app():
             validation_data=test_set,
             steps_per_epoch=4,
             validation_steps=10,
-            verbose=0,
-            callbacks=[EpochProgressBar(epochs)]
+            callbacks=[CustomCallback()]
         )
         
         # update the progress bar

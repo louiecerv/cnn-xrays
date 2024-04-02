@@ -13,6 +13,10 @@ from tensorflow.keras.callbacks import Callback
 import time
 
 class_name = ['NORMAL','PNEUMONIA']
+
+def get_class(label):
+    return class_name[label]
+
 def get_list_files(dirName):
   """
   input - directory location
@@ -269,7 +273,7 @@ def plot_images(images, labels):
 
     for i, (image, label) in enumerate(zip(images, labels)):
         axs[i].imshow(image)  # Use ax for imshow on each subplot
-        axs[i].set_title(f"Class: {label}")  # Use ax.set_title for title
+        axs[i].set_title(get_class(int(label)))  # Use ax.set_title for title
         axs[i].axis("off")  # Use ax.axis for turning off axis
 
     plt.tight_layout()  # Adjust spacing between subplots

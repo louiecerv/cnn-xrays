@@ -10,6 +10,8 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import Callback
+from tensorflow.keras.optimizers import Adam
+
 import time
 
 class_name = ['NORMAL','PNEUMONIA']
@@ -122,9 +124,6 @@ def app():
     options = ["sigmoid", "softmax"]
     o_activation = st.sidebar.selectbox('Activation function for the output layer:', options)
 
-    options = ["adam", "adagrad", "sgd"]
-    optimizer = st.sidebar.selectbox('Select the optimizer:', options)
-
     n_layers = st.sidebar.slider(      
         label="Number of Neurons in the Convolutional Layer:",
         min_value=16,
@@ -156,6 +155,12 @@ def app():
     # Dense layers
     classifier.add(layers.Dense(units=128, activation="relu"))
     classifier.add(layers.Dense(units=1, activation=o_activation))
+
+    # Define a lower learning rate than you might have used previously
+    learning_rate = 0.0001
+
+    # Create the optimizer with the chosen learning rate
+    optimizer = Adam(learning_rate=learning_rate)
 
     # Compile the model
     classifier.compile(optimizer=optimizer, loss="binary_crossentropy", metrics=["accuracy"])

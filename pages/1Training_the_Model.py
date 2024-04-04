@@ -221,7 +221,8 @@ def app():
             training_set,
             epochs=epochs,
             validation_data=test_set,
-            steps_per_epoch=4,
+            batch_size = batch_size,
+            #steps_per_epoch=4,
             validation_steps=10,
             callbacks=[CustomCallback()]
         )

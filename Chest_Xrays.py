@@ -6,8 +6,6 @@ import time
 
 # Define the Streamlit app
 def app():
-
-
     text = """Convolutional Neural Network Image Classifier Using Tensorflow and Keras on the Chest X-Rays Dataset"""
     st.subheader(text)
 

@@ -70,8 +70,30 @@ def app():
     progress_bar = st.progress(0, text="Loading the images, please wait...")
 
     # Data generators
-    train_datagen = ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, horizontal_flip=True)
-    test_datagen = ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, horizontal_flip=True)
+    #train_datagen = ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, horizontal_flip=True)
+    #test_datagen = ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, horizontal_flip=True)
+
+    train_datagen = ImageDataGenerator(
+        rescale=1.0/255,
+        shear_range=0.2,
+        horizontal_flip=True,
+        width_shift_range=0.2,  # Add width shift for robustness
+        height_shift_range=0.2,  # Add height shift for robustness
+        rotation_range=10,      # Apply small random rotations
+        zoom_range=0.1,        # Perform random zooming
+        channel_shift_range=10  # Adjust intensity of color channels
+    )
+
+    test_datagen = ImageDataGenerator(
+        rescale=1.0/255,
+        shear_range=0.2,
+        horizontal_flip=True,
+        width_shift_range=0.2,  # Add width shift for robustness
+        height_shift_range=0.2,  # Add height shift for robustness
+        rotation_range=10,      # Apply small random rotations
+        zoom_range=0.1,        # Perform random zooming
+        channel_shift_range=10  # Adjust intensity of color channels
+    )
 
     # Data preparation
     training_set = train_datagen.flow_from_directory(
